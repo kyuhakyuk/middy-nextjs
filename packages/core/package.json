@@ -1,0 +1,23 @@
+{
+  "name": "@middy-nextjs/core",
+  "version": "0.0.0",
+  "description": "🛵 The simple Graphql framework for Node.js inspired by middyjs",
+  "author": {
+    "name": "kyuhak yuk",
+    "url": "https://github.com/kyuhakyuk"
+  },
+  "homepage": "https://github.com/kyuhakyuk/middy-nextjs",
+  "type": "commonjs",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "public": "true",
+  "engines": {
+    "node": ">=12"
+  },
+  "scripts": {
+    "test": "ava --verbose"
+  },
+  "engineStrict": true,
+  "license": "MIT",
+  "dependencies": {}
+}

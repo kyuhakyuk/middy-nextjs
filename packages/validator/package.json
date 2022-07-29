@@ -1,0 +1,29 @@
+{
+  "name": "@middy-nextjs/validator",
+  "version": "0.0.0",
+  "description": "🛵 The simple api frameworks for Next.js inspired by middyjs and middy-graphql",
+  "author": {
+    "name": "kyuhak yuk",
+    "url": "https://github.com/kyuhakyuk"
+  },
+  "homepage": "https://github.com/kyuhakyuk/middy-nextjs",
+  "type": "commonjs",
+  "public": "true",
+  "engines": {
+    "node": ">=12"
+  },
+  "main": "index.js",
+  "types": "index.d.ts",
+  "scripts": {
+    "test": "ava"
+  },
+  "engineStrict": true,
+  "license": "MIT",
+  "dependencies": {
+    "@middy-nextjs/core": "^0.0.0",
+    "@middy-nextjs/error": "^0.0.0"
+  },
+  "devDependencies": {
+    "joi": "^17.6.0"
+  }
+}

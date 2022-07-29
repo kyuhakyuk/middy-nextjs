@@ -1,0 +1,53 @@
+{
+  "name": "middy-nextjs",
+  "version": "0.0.0",
+  "description": "🛵 The simple api frameworks for Next.js inspired by middyjs and middy-graphql",
+  "main": "index.js",
+  "author": {
+    "name": "Kyuhak Yuk",
+    "url": "https://github.com/kyuhakyuk"
+  },
+  "license": "MIT",
+  "private": true,
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "clean:build": "rimraf .build-cache && rimraf ./packages/**/dist",
+    "release:version": "lerna version --no-changelog --no-push --no-git-tag-version",
+    "release:build": "lerna run --parallel build",
+    "release:publish": "lerna publish from-package --dist-tag latest --contents build",
+    "commit": "git cz",
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.16.12",
+    "@babel/preset-env": "^7.16.11",
+    "@commitlint/cli": "^16.1.0",
+    "@commitlint/config-conventional": "^16.0.0",
+    "@types/node": "^17.0.10",
+    "ava": "^4.0.1",
+    "commitizen": "^4.2.4",
+    "cz-conventional-changelog": "^3.3.0",
+    "husky": "^7.0.4",
+    "lerna": "^4.0.0",
+    "prettier": "^2.5.1",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.5.5"
+  },
+  "keywords": [
+    "middy",
+    "typescript",
+    "nextjs",
+    "next.js",
+    "api"
+  ],
+  "engines": {
+    "node": ">= 12"
+  }
+}

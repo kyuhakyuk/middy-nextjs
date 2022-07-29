@@ -1,0 +1,22 @@
+{
+  "name": "@middy-nextjs/error",
+  "version": "0.0.0",
+  "description": "🛵 The simple api frameworks for Next.js inspired by middyjs and middy-graphql",
+  "author": {
+    "name": "kyuhak yuk",
+    "url": "https://github.com/kyuhakyuk"
+  },
+  "homepage": "https://github.com/kyuhakyuk/middy-nextjs",
+  "type": "commonjs",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "public": "true",
+  "engines": {
+    "node": ">=12"
+  },
+  "engineStrict": true,
+  "license": "MIT",
+  "scripts": {
+    "test": "ava --verbose"
+  }
+}
