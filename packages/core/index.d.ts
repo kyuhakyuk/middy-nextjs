@@ -6,11 +6,6 @@ import { IncomingMessage, ServerResponse } from 'http'
 type Send<T> = (body: T) => void
 
 /**
- * Data passed from the prev middleware
- */
-type Info<T = any> = T
-
-/**
  * Next `API` route request
  */
 export interface NextApiRequest extends IncomingMessage {
@@ -80,33 +75,37 @@ export type NextApiResponse<T = any> = ServerResponse & {
 
 export type ApiHandler = (
   req: NextApiRequest,
-  res: NextApiResponse,
-  info: Info
-) => Promise<void> | any
+  res: NextApiResponse
+) => Promise<any> | any
 
-declare function middy(apiHandler: ApiHandler): {
-  (req: NextApiRequest, res: NextApiResponse): Promise<any> | any
-  use(middlewares: MiddlewareObj | MiddlewareObj[]): any
-  applyMiddleware(middleware?: MiddlewareObj): any
-  before(beforeMiddleware: MiddlewareFn): any
-  after(afterMiddleware: MiddlewareFn): any
-  onError(onErrorMiddleware: MiddlewareFn): any
-  __middlewares: {
-    before: MiddlewareFn[]
-    after: MiddlewareFn[]
-    onError: MiddlewareFn[]
-  }
+declare type MiddyfiedHandler<R = any> = {
+  use: UseFn<R>
+  before: MiddlewareFn<R>
+  after: MiddlewareFn<R>
+  onError: MiddlewareFn<R>
 }
+
+declare type UseFn<R> = (
+  middlewares: MiddlewareObj<R> | MiddlewareObj<R>[]
+) => MiddyfiedHandler<R>
+
+declare function middy<R>(apiHandler: ApiHandler): MiddyfiedHandler<R>
 
 export declare type MiddlewareFn<R = any> = (
   req: NextApiRequest,
-  res: NextApiResponse,
-  info: Info
+  res: NextApiResponse
 ) => Promise<R> | R
-export interface MiddlewareObj {
+
+declare type OnErrorFn<R> = (
+  req: NextApiRequest,
+  res: NextApiResponse,
+  error: any
+) => Promise<R> | R
+
+export interface MiddlewareObj<R> {
   before?: MiddlewareFn
   after?: MiddlewareFn
-  onError?: MiddlewareFn
+  onError: OnErrorFn<R>
 }
 
 export default middy

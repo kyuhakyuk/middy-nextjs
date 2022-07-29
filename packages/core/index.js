@@ -73,7 +73,7 @@ async function execute(
 ) {
   try {
     await runMiddlewares(context, beforeMiddlewares)
-    context.info = await apiHandler(context.req, context.res, context.info)
+    await apiHandler(context.req, context.res)
     await runMiddlewares(context, afterMiddlewares)
   } catch (e) {
     context.error = e
@@ -90,9 +90,9 @@ async function execute(
   }
 }
 
-async function runMiddlewares({ req, res, info = {} }, middlewares) {
+async function runMiddlewares({ req, res, error }, middlewares) {
   for (const middleware of middlewares) {
-    info = await middleware?.(req, res)
+    info = await middleware?.(req, res, error)
   }
 }
 
