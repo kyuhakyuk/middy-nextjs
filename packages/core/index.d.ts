@@ -5,6 +5,10 @@ import { IncomingMessage, ServerResponse } from 'http'
  */
 type Send<T> = (body: T) => void
 
+export declare type Env = {
+  [key: string]: string
+}
+
 /**
  * Next `API` route request
  */
@@ -23,7 +27,7 @@ export interface NextApiRequest extends IncomingMessage {
   }>
 
   body: any
-
+  env: Env
   preview?: boolean
 }
 
