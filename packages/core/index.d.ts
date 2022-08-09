@@ -105,7 +105,7 @@ declare type OnErrorFn<R> = (
 export interface MiddlewareObj<R> {
   before?: MiddlewareFn
   after?: MiddlewareFn
-  onError: OnErrorFn<R>
+  onError?: OnErrorFn<R>
 }
 
 export default middy

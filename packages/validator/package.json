@@ -1,6 +1,6 @@
 {
   "name": "@middy-nextjs/validator",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "🛵 The simple api frameworks for Next.js inspired by middyjs and middy-graphql",
   "author": {
     "name": "kyuhak yuk",
@@ -20,8 +20,8 @@
   "engineStrict": true,
   "license": "MIT",
   "dependencies": {
-    "@middy-nextjs/core": "^0.0.0",
-    "@middy-nextjs/error": "^0.0.0"
+    "@middy-nextjs/core": "^0.0.1",
+    "@middy-nextjs/error": "^0.0.1"
   },
   "devDependencies": {
     "joi": "^17.6.0"

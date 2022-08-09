@@ -1,6 +1,6 @@
 {
   "name": "@middy-nextjs/core",
-  "version": "0.0.0",
+  "version": "0.0.2",
   "description": "🛵 The simple Graphql framework for Node.js inspired by middyjs",
   "author": {
     "name": "kyuhak yuk",
