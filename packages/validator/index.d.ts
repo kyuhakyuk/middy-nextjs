@@ -1,12 +1,10 @@
 import joi from 'joi'
-import { MiddlewareFn } from '@middy-nextjs/core'
+import { MiddlewareObj } from '@middy-nextjs/core'
 
 declare type Options = {
   inputSchema?: joi.ObjectSchema<any>
 }
 
-declare function validatorMiddleware(options?: Options): {
-  before: MiddlewareFn
-}
+declare function validatorMiddleware(options?: Options): MiddlewareObj<any>
 
 export default validatorMiddleware
